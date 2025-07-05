@@ -1,4 +1,4 @@
-cat << 'EOF' > README.md
+
 # ArkLab AI Agent Catalog 📒
 
 A responsive, SEO-friendly AI Agent Catalog built with **Next.js 15**, **TypeScript**, **Redux**, **Shadcn UI**, **Framer Motion**, and **NextAuth (Google OAuth)**. This project is a submission for ArkLab's Frontend Developer Intern Take-Home Challenge.
@@ -54,6 +54,7 @@ A responsive, SEO-friendly AI Agent Catalog built with **Next.js 15**, **TypeScr
 
 ## 📂 Project Structure
 
+```bash
 src/
 components/
 AgentCard.tsx
@@ -72,12 +73,10 @@ styles/
 next.config.js
 package.json
 tailwind.config.ts
+```
 
-yaml
-Copy
-Edit
 
----
+
 
 ## 🧑‍💻 Getting Started (Local Development)
 
@@ -85,29 +84,29 @@ Edit
 ```bash
 git clone https://github.com/yourusername/arklab-agent-catalog.git
 cd arklab-agent-catalog
-2️⃣ Install dependencies:
-bash
-Copy
-Edit
+```
+### 2️⃣ Install dependencies:
+```bash
 npm install
-3️⃣ Setup Environment Variables:
+```
+### 3️⃣ Setup Environment Variables:
 Create a .env.local file based on the provided .env.local.example:
 
-ini
-Copy
-Edit
+```bash
 GOOGLE_CLIENT_ID=your-client-id
 GOOGLE_CLIENT_SECRET=your-client-secret
 NEXTAUTH_SECRET=some-random-string
 NEXTAUTH_URL=http://localhost:3000
+``` 
+
 4️⃣ Run the development server:
-bash
-Copy
-Edit
+```bash
 npm run dev
+```
+
 Visit http://localhost:3000 to view the app.
 
-📌 Notes & Challenges
+## 📌 Notes & Challenges
 Implemented protected routes via NextAuth's session-based authentication.
 
 Faced React hook mismatch error due to conditional hooks; resolved by ensuring no hooks after early returns.
@@ -116,9 +115,8 @@ Added Framer Motion for agent card animations.
 
 Integrated SSR for optimal SEO and preloaded agent data.
 
-📃 License
+## 📃 License
 MIT
 
-🌟 Acknowledgments
+## 🌟 Acknowledgments
 Thanks to the ArkLab team for this engaging challenge.
-EOF
