@@ -29,7 +29,7 @@ export default function LoginPage() {
 
             <div className="text-center text-sm text-gray-500">or</div>
 
-            <Button className="w-full" onClick={() => signIn("google")}>
+            <Button className="w-full" onClick={() => signIn("google", { callbackUrl: "/agents" })}>
               <svg
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
@@ -67,6 +67,9 @@ export default function LoginPage() {
           </CardContent>
 
           <CardFooter className="flex justify-between text-sm text-gray-500">
+            <Link href="/agents" className="hover:underline">
+              View Agents
+            </Link>
             <Link href="#" className="hover:underline">
               Forgot Password?
             </Link>

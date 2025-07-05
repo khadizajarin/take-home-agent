@@ -1,40 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+cat << 'EOF' > README.md
+# ArkLab AI Agent Catalog 📒
 
-## Getting Started
+A responsive, SEO-friendly AI Agent Catalog built with **Next.js 15**, **TypeScript**, **Redux**, **Shadcn UI**, **Framer Motion**, and **NextAuth (Google OAuth)**. This project is a submission for ArkLab's Frontend Developer Intern Take-Home Challenge.
 
-First, run the development server:
+## 🚀 Live Demo
+[🔗 Deployed on Vercel](https://take-home-agent.vercel.app/)
 
+---
+
+## 📑 Features
+
+✅ AI Agent listing page with:
+- Name, description, status, category, and pricing model.
+- Responsive, card-based grid layout (built with Shadcn UI).
+
+✅ **Server-Side Rendering (SSR)** with `getServerSideProps`:
+- Fetches agent data from a mock JSON file.
+- Pre-renders initial data for SEO and faster first paint.
+
+✅ **Client-side Search & Filtering**:
+- Real-time search by name/description.
+- Multi-select Status and Category filters.
+- Single-select Pricing Model filter.
+- "Clear All Filters" button.
+
+✅ **Responsive Design**:
+- Mobile-first, adaptable layouts using CSS grid + Tailwind.
+
+✅ **Basic SEO**:
+- Dynamic `<title>` and `<meta>` tags with Next.js `<Head>` component.
+
+✅ **Framer Motion Animations**:
+- Smooth fade-in effects on card render and page transitions.
+
+✅ **Optional Advanced: Google OAuth (NextAuth.js)**:
+- Sign-in with Google integration.
+- Session management using NextAuth.
+- Login and protected routes.
+
+---
+
+## 🛠️ Tech Stack
+
+- [Next.js 15](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Shadcn UI](https://ui.shadcn.dev/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+## 📂 Project Structure
+
+src/
+components/
+AgentCard.tsx
+Navbar.tsx
+ui/
+pages/
+agents.tsx
+index.tsx
+_app.tsx
+api/
+auth/[...nextauth].ts
+public/
+mock-agents.json
+styles/
+.env.local.example
+next.config.js
+package.json
+tailwind.config.ts
+
+yaml
+Copy
+Edit
+
+---
+
+## 🧑‍💻 Getting Started (Local Development)
+
+### 1️⃣ Clone the repo:
 ```bash
+git clone https://github.com/yourusername/arklab-agent-catalog.git
+cd arklab-agent-catalog
+2️⃣ Install dependencies:
+bash
+Copy
+Edit
+npm install
+3️⃣ Setup Environment Variables:
+Create a .env.local file based on the provided .env.local.example:
+
+ini
+Copy
+Edit
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+NEXTAUTH_SECRET=some-random-string
+NEXTAUTH_URL=http://localhost:3000
+4️⃣ Run the development server:
+bash
+Copy
+Edit
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Visit http://localhost:3000 to view the app.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📌 Notes & Challenges
+Implemented protected routes via NextAuth's session-based authentication.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Faced React hook mismatch error due to conditional hooks; resolved by ensuring no hooks after early returns.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Added Framer Motion for agent card animations.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Integrated SSR for optimal SEO and preloaded agent data.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+📃 License
+MIT
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+🌟 Acknowledgments
+Thanks to the ArkLab team for this engaging challenge.
+EOF
