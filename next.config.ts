@@ -14,7 +14,7 @@ module.exports = {
       },
       {
         protocol: 'https',
-        hostname: 'thumbs.dreamstime.com',
+        hostname: 'encrypted-tbn0.gstatic.com',
       },
     ],
   },

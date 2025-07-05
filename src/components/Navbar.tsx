@@ -10,10 +10,10 @@ export function Navbar() {
     <nav className="flex items-center justify-between p-4 border-b bg-white shadow-sm">
       <div className="text-xl font-bold">
         <Link href="/"> <Image
-                    src="https://thumbs.dreamstime.com/b/ai-driven-crm-line-icon-linear-style-sign-mobile-concept-web-design-customer-service-agent-neural-network-outline-372103212.jpg"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTboO_QooLGNR48HwiBoE-d8PK7HLug-pT5Q&s"
                     alt="AI Illustration"
-                    width={1400}
-                    height={1500}
+                    width={400}
+                    height={500}
                     className="object-contain p-8"
                    /></Link>
       </div>

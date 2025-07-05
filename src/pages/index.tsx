@@ -34,7 +34,7 @@ export default function LoginPage() {
               <div className="text-center text-sm text-gray-500">or</div>
 
               <Button
-                className="w-full bg-gray-200 text-black flex items-center justify-center space-x-2"
+                className="w-full bg-gray-200 text-black hover:text-gray-300 flex items-center justify-center space-x-2"
                 onClick={() => signIn("google", { callbackUrl: "/agents" })}
               >
                 <svg
