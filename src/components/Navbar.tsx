@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useSession, signOut } from "next-auth/react";
+import Image from "next/image";
 
 export function Navbar() {
   const { data: session } = useSession();
@@ -8,7 +9,13 @@ export function Navbar() {
   return (
     <nav className="flex items-center justify-between p-4 border-b bg-white shadow-sm">
       <div className="text-xl font-bold">
-        <Link href="/">ArkLab</Link>
+        <Link href="/"> <Image
+                    src="https://thumbs.dreamstime.com/b/ai-driven-crm-line-icon-linear-style-sign-mobile-concept-web-design-customer-service-agent-neural-network-outline-372103212.jpg"
+                    alt="AI Illustration"
+                    width={1400}
+                    height={1500}
+                    className="object-contain p-8"
+                   /></Link>
       </div>
 
       <div className="flex items-center space-x-4">

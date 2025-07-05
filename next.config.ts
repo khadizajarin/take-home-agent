@@ -7,8 +7,17 @@ const nextConfig: NextConfig = {
 
 module.exports = {
   images: {
-    remotePatterns: [new URL('https://www.allaboutai.com/wp-content/uploads/2024/11/How-AI-Agents-Work-in-Manufacturing.gif')]
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.allaboutai.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'thumbs.dreamstime.com',
+      },
+    ],
   },
-}
+};
 
 export default nextConfig;
