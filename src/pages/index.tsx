@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-
+import { AgentCard } from '../components/AgentCard';
 interface Agent {
   id: string;
   name: string;
@@ -11,16 +11,16 @@ interface Agent {
 
 export default function Home({ agents }: { agents: Agent[] }) {
   return (
-    <div>
+    <main>
       <h1>ArkLab AI Agents Catalog</h1>
-      <ul>
+      <div className='grid grid-cols-2 space-x-1'>
         {agents.map((agent) => (
-          <li key={agent.id}>
-            {agent.name} - {agent.description} (Status: {agent.status})
-          </li>
+          <div key={agent.id}>
+             <AgentCard key={agent.id} agent={agent} />
+          </div>
         ))}
-      </ul>
-    </div>
+      </div>
+    </main>
   );
 }
 
