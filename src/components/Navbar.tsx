@@ -19,7 +19,10 @@ export function Navbar() {
         {session ? (
           <>
             <span className="text-sm">Hello, {session.user?.name}</span>
-            <Button variant="outline" onClick={() => signOut()}>Logout</Button>
+            <Button onClick={() => signOut({ callbackUrl: "/" })}>
+                Logout
+            </Button>
+
           </>
         ) : (
           <Link href="/">

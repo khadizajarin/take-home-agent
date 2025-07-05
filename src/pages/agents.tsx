@@ -27,43 +27,32 @@ interface Props {
 
 export default function AgentsPage({ agents }: Props) {
 
-  const { data: session, status } = useSession();
-  console.log("Session data: ", session);
-
+ const { data: session, status } = useSession();
   const router = useRouter();
 
-//  if (status === "loading") return <p>Loading...</p>;
-if (status === "unauthenticated") {
-  router.push("/");
-  return null;
-}
+  if (status === "loading") return <p>Loading...</p>;
 
+  if (status === "unauthenticated") {
+    if (typeof window !== "undefined") {
+      router.push("/agents");
+    }
+    return null;
+  }
 
+  // ✅ All hooks now after auth check
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedPricing, setSelectedPricing] = useState<string>("");
 
   const dynamicDescription = useMemo(() => {
-  let desc = "Browse the latest AI agents on ArkLab.";
-
-  if (searchQuery) {
-    desc += ` Searching for "${searchQuery}".`;
-  }
-  if (selectedStatuses.length > 0) {
-    desc += ` Filtering by statuses: ${selectedStatuses.join(", ")}.`;
-  }
-  if (selectedCategories.length > 0) {
-    desc += ` Categories: ${selectedCategories.join(", ")}.`;
-  }
-  if (selectedPricing) {
-    desc += ` Pricing model: ${selectedPricing}.`;
-  }
-
-  return desc;
-}, [searchQuery, selectedStatuses, selectedCategories, selectedPricing]);
-
-  if (status === "loading") return <p>Loading...</p>;
+    let desc = "Browse the latest AI agents on ArkLab.";
+    if (searchQuery) desc += ` Searching for "${searchQuery}".`;
+    if (selectedStatuses.length > 0) desc += ` Statuses: ${selectedStatuses.join(", ")}.`;
+    if (selectedCategories.length > 0) desc += ` Categories: ${selectedCategories.join(", ")}.`;
+    if (selectedPricing) desc += ` Pricing model: ${selectedPricing}.`;
+    return desc;
+  }, [searchQuery, selectedStatuses, selectedCategories, selectedPricing]);
 
   if (!session) return null; // Wait for redirect
 

@@ -67,9 +67,6 @@ export default function LoginPage() {
           </CardContent>
 
           <CardFooter className="flex justify-between text-sm text-gray-500">
-            <Link href="/agents" className="hover:underline">
-              View Agents
-            </Link>
             <Link href="#" className="hover:underline">
               Forgot Password?
             </Link>
