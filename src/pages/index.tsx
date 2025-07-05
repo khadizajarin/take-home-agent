@@ -4,33 +4,40 @@ import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
 import Head from "next/head";
 import { signIn } from "next-auth/react";
+import Image from "next/image";
 
 
 export default function LoginPage() {
   return (
     <>
-     <Head>
+      <Head>
         <title>ArkLab AI Agents Catalog</title>
         <meta
           name="Login"
-          content="Browse the latest AI agents on ArkLab — filter by status, category, and pricing model."
+          content="Login to browse the latest AI agents on ArkLab — filter by status, category, and pricing model."
         />
       </Head>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100 p-4">
-        <Card className="w-full max-w-sm">
-          <CardHeader>
-            <h2 className="text-2xl font-bold text-center">Login to ArkLab</h2>
-          </CardHeader>
 
-          <CardContent className="space-y-4">
-            <Input type="email" placeholder="Email" />
-            <Input type="password" placeholder="Password" />
-            <Button className="w-full">Login</Button>
+     <div className="flex min-h-screen bg-gradient-to-r from-gray-400 via-white to-gray-100">
+        {/* Left side - Login Form */}
+        <div className="flex flex-col items-center justify-center w-full  md:w-1/2 p-8 relative z-10 ">
+          <Card className="w-full max-w-sm shadow-xl">
+            <CardHeader>
+              <h2 className="text-2xl font-bold text-center">Login to ArkLab</h2>
+            </CardHeader>
 
-            <div className="text-center text-sm text-gray-500">or</div>
+            <CardContent className="space-y-4">
+              <Input type="email" placeholder="Email" />
+              <Input type="password" placeholder="Password" />
+              <Button className="w-full">Login</Button>
 
-            <Button className="w-full" onClick={() => signIn("google", { callbackUrl: "/agents" })}>
-              <svg
+              <div className="text-center text-sm text-gray-500">or</div>
+
+              <Button
+                className="w-full flex items-center justify-center space-x-2"
+                onClick={() => signIn("google", { callbackUrl: "/agents" })}
+              >
+                <svg
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
                   fill="currentColor"
@@ -61,22 +68,38 @@ export default function LoginPage() {
                     fill="#EA4335"
                   />
                 </svg>
-              Sign in with Google
-            </Button>
+                <span>Sign in with Google</span>
+              </Button>
+            </CardContent>
 
-          </CardContent>
+            <CardFooter className="flex justify-between text-sm text-gray-500">
+              <Link href="/agents" className="hover:underline">
+                View Agents
+              </Link>
+              <Link href="#" className="hover:underline">
+                Forgot Password?
+              </Link>
+            </CardFooter>
+          </Card>
+        </div>
 
-          <CardFooter className="flex justify-between text-sm text-gray-500">
-            <Link href="/agents" className="hover:underline">
-              View Agents
-            </Link>
-            <Link href="#" className="hover:underline">
-              Forgot Password?
-            </Link>
-          </CardFooter>
-        </Card>
+        {/* Diagonal Divider */}
+        <div className="hidden md:block w-0.5 relative z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-gray-300 to-gray-100 transform rotate-6 origin-center w-px"></div>
+        </div>
+
+        {/* Right side (blank / future image/branding section) */}
+        <div className="hidden md:flex flex-1 items-center justify-center bg-white">
+          <Image
+            src="https://www.allaboutai.com/wp-content/uploads/2024/11/How-AI-Agents-Work-in-Manufacturing.gif"
+            alt="AI Illustration"
+            width={1400}
+            height={1500}
+            className="object-contain p-8"
+           />
+          </div>
+
       </div>
     </>
-    
   );
 }
