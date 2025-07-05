@@ -24,9 +24,11 @@ export default function Home({ agents }: { agents: Agent[] }) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
-    const res = await fetch('http://localhost:3000/mock-agents.json');
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    const host = context.req.headers.host;
+    const res = await fetch(`${protocol}://${host}/mock-agents.json`);
     if (!res.ok) throw new Error(`Failed to fetch agents: ${res.statusText}`);
     const agents = await res.json();
     return { props: { agents } };
