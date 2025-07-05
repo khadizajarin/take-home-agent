@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-// Define a simple reducer (placeholder)
-const rootReducer = (state = {}, action) => state;
+import { Action } from 'redux';
+
+const rootReducer = (state = {}, action: Action) => {
+  return state;
+};
 
 export const store = configureStore({
   reducer: rootReducer,
