@@ -125,10 +125,10 @@ export default function AgentsPage({ agents }: Props) {
           </div>
         </div>
         
-        <div className="grid gap-4 mb-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 mb-6 md:grid-cols-2 lg:grid-cols-3 text-black">
         {/* Status Filter */}
-        <div className="bg-white p-4 rounded-xl shadow space-y-2">
-          <h2 className="font-semibold text-lg mb-2">Status</h2>
+        <div className="bg-white  p-4 rounded-xl shadow space-y-2 ">
+          <h2 className="font-semibold text-lg mb-2 text-black" >Status</h2>
           {statusOptions.map((status) => (
           <div key={status} className="flex items-center space-x-2 mb-1">
           <Checkbox
@@ -136,7 +136,7 @@ export default function AgentsPage({ agents }: Props) {
           checked={selectedStatuses.includes(status)}
           onCheckedChange={() => handleStatusChange(status)}
           />
-          <label htmlFor={`status-${status}`} className="text-sm">{status}</label>
+          <label htmlFor={`status-${status}`} className="text-sm" style={{ color: 'black' }}>{status}</label>
          </div>
          ))}
         </div>
@@ -151,7 +151,7 @@ export default function AgentsPage({ agents }: Props) {
           checked={selectedCategories.includes(category)}
           onCheckedChange={() => handleCategoryChange(category)}
          />
-         <label htmlFor={`category-${category}`} className="text-sm">{category}</label>
+         <label htmlFor={`category-${category}`} className="text-sm text-black">{category}</label>
          </div>
          ))}
         </div>
@@ -184,10 +184,10 @@ export default function AgentsPage({ agents }: Props) {
 
         {/* Agents List */}
         <motion.div
-  initial={{ opacity: 0, y: 10 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.4 }}
->
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {filteredAgents.length > 0 ? (
             filteredAgents.map((agent) => (
